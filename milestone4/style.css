@@ -1,187 +1,142 @@
-/* HINT: Your body, band and unwind spacing rules are correct, so I removed their notes.
-   Notes marked FIX are about code you've already typed. Delete every HINT comment before you push.
-   Reminder: one property, one colon, one value and one semicolon on each line. */
 
-
-/* HINT ============================== WHOLE PAGE ============================== */
 
 body
 {
 margin: 0;
-}
-.band
-{
 display: grid;
+
 grid-template-columns: minmax(0px, 1fr) repeat(6, minmax(0, 175px)) minmax(0px, 1fr);
 }
-/* HINT · HOW TO FILL IN THE BOXES BELOW (read this, nothing to type)
-   Most boxes below get the same three settings:
 
-   1. grid-column places the box. Grid counts the LINES between columns, not the columns.
-      8 columns have 9 lines. On a 1200px wide screen they land here:
-
-       line:   1    2    3    4    5    6    7     8     9
-       x:      0   75  250  425  600  775  950  1125  1200
-
-      The value is the start line, a slash, then the end line. Both are numbers from the TOP row.
-      Find the box's x in the BOTTOM row, then use the line number right above it.
-      Worked example, your logo: x 75 is line 2 and end x 250 is line 3, so it runs 2 to 3.
-
-   2. height is a temporary size, so the empty boxes show up. It needs the unit: px.
-      Without px, the browser ignores it and the box has no height. M5 removes most of these.
-
-   3. background-color makes the box visible. Use a different color for each box.
-      Use rgba, which takes four numbers:
-        - red, green and blue, each from 0 to 255
-        - alpha (see-through amount), from 0 to 1. Use about 0.3.
-      The example in Canvas, rgba(255,255,255,0.3), is white, so it vanishes on a white page.
-      Use your own color numbers, or give the page a dark background. */
-
-/* HINT ============================== BAND 1: HEADER ============================== */
-
-/* HINT · FIX LOGO: x 75, end x 250, height 100.
-     - grid-column: 2 is right, but 250 is an x position. Use the line number above it.
-     - height: add px.
-     - background-color: swap the color name for rgba. */
+header, main, footer {
+  display: contents;
+}
+.header-bg{
+  grid-column: 1 / -1;
+  grid-row: 1;
+  background-color: rgba(0, 100, 225, 0.3);
+}
 .logo
 {
   grid-column: 2 / 3;
+  grid-row: 1;
   height: 100px;
   background-color: rgba(0, 255, 255, 0.3);
 }
 
-/* HINT · FIX NAV: x 250, end x 1125, height 100.
-     - selector: it's missing its last letter, so it doesn't match your nav class.
-     - grid-column: the end line 8 is right. The start is wrong, so look up x 250.
-     - height: add px.
-     - background-color: swap the color name for rgba.
-   (M5: right-align the links with flex.) */
-
 .nav
 {
   grid-column: 3 / 8;
+  grid-row: 1;
   height: 100px;
   background-color: rgba(165, 42, 42, 0.3);
 }
-/* HINT ============================== BAND 2: HERO ============================== */
 
-/* HINT · FIX HERO TEXT: x 250, end x 950, height 390.
-     - selector: this one picks the whole band. These settings belong on the box inside it,
-       so select the hero-text class.
-     - grid-column: the end line 7 is right. The start is wrong, so look up x 250.
-     - height: add px.
-     - background-color: swap the color name for rgba. */
+
+.hero-bg{
+  grid-column: 1 / -1;
+  grid-row:  2;
+  background-color: rgba(100, 60, 90, 0.3);
+}
 .hero-text
 {
   grid-column: 3 / 7;
+  grid-row: 2;
   height: 390px;
   background-color: rgba(138, 43, 226, 0.3);
 }
 
-/* HINT ============================== BAND 3: UNWIND ============================== */
 
-.unwind
-{
-  padding-top: 48px;
-  padding-bottom: 48px;
+.unwind-bg{
+  grid-column: 1 / -1;
+  grid-row: 3;
+  background-color: rgba(140,  200,  100, .3);
 }
-/* HINT · FIX UNWIND WRAPPER: x 75, end x 1125, height 504.
-     - grid-template-columns: your numbers are right, but each one needs px, as minmax(0, Npx).
-     - grid-template-rows: minmax needs two values, so this line is invalid. Your rows are a
-       fixed size, so drop minmax and write 240px twice, with a space between.
-     - display and gap are correct.
-     - still to add: grid-column, height and an rgba background-color, using the numbers above.
-
-   Check the math: 202 + 24 + 400 + 24 + 400 = 1050, the wrapper's width. */
 
 .boxes
 {
   grid-column: 2 / 8;
-  height: 504px;
-  background-color: rgba(255, 165, 0, 0.3);
-  display: grid;
-  grid-template-columns: minmax(0, 202px) minmax(0, 400px) minmax(0, 400px);
-  grid-template-rows: 240px 240px;
+  grid-row: 3;
   gap: 24px;
+  display: flex;
+  margin: 48px 0;
+  background-color: rgba(255, 165, 0, 0.3);
 }
-/* HINT · THE FOUR CARDS (one rule each, written below this note)
-   These sit on the wrapper's small grid, not the band's, so ignore the 9-line table here.
-   Each card gets grid-column, grid-row and a color. No height needed, because the grid stretches
-   them to fill their cells. To fill one cell, a single number is enough.
-   To stretch across cells, use start line, slash, end line. */
 
-
-/* HINT · SIGN-UP: select the sign-up class. Column 1, row 1, plus a color. */
+.middle{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  gap: 24px;
+ }
 .sign-up
 {
-  grid-column: 1;
-  grid-row: 1;
+  width: 202px;
+  height: 240px;
   background-color: rgba(34, 57, 92, .3);
 }
 
-/* HINT · GAMES: select the games class. Column 2, row 1, plus a color. */
 .games{
-  grid-column: 2;
-  grid-row: 1;
+  height: 240px;
   background-color: rgba(34, 99, 92, .3);
 }
-/* HINT · RELAX: select the relax class. Column 2, row 2, plus a color. */
 .relax{
-  grid-column: 2;
-  grid-row: 2;
+  height: 240px;
   background-color: rgba(50, 57, 92, .3);
 }
 
-/* HINT · SPEND: select the spend class. Column 3, both rows, plus a color.
-   This is the one to think about. Two rows have 3 lines, so both rows means line 1 to line 3.
-   Check: 240 + 24 + 240 = 504, the wrapper's height. */
-
 .spend{
-  grid-column: 3;
-  grid-row: 1 / 2;
+  width: 400px;
   background-color: rgba(34, 57, 12, .3);
 }
-/* HINT ============================== BAND 4: REVIEWS ============================== */
 
-.review
-{
-  padding-top: 48px;
-  padding-bottom: 48px;
+
+.review-bg {
+grid-column: 1 / -1;
+grid-row: 4;
+background-color: rgba(0, 225, 255, 0.3);
 }
-
 .reviews
 {
   grid-column: 2 / 3;
+  grid-row: 4;
   height: 254px;
-  margin: 0;
+  margin: 48px 0;
   background-color: rgba(255, 0, 0, 0.3);
 }
 
 .review-box
 {
+  display: flex;
   grid-column: 3 / 8;
-  height: 254px;
+  grid-row: 4;
   background-color: rgba(0, 128, 0, 0.3);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 24px;
+  margin: 48px 0;
 }
 
 .review1
 {
   background-color: rgba(0, 0, 255, 0.3);
+  flex: 1;
 }
 
 .review2
 {
   background-color: rgba(255, 0, 255, 0.3);
+  flex: 1;
 }
 
-/* HINT ============================== BAND 5: FOOTER ============================== */
 
+.footer-bg {
+  grid-column: 1 / -1;
+  grid-row: 5;
+  background-color: rgba(225, 128, 64, 0.3);
+}
 .left
 {
   grid-column: 2 / 5;
+  grid-row: 5;
   height: 160px;
   background-color: rgba(255, 215, 0, 0.3);
 }
@@ -189,25 +144,11 @@ grid-template-columns: minmax(0px, 1fr) repeat(6, minmax(0, 175px)) minmax(0px, 
 .right
 {
   grid-column: 5 / 8;
+  grid-row: 5;
   height: 160px;
   background-color: rgba(0, 128, 128, 0.3);
 }
 
 
-/* HINT ============================== TEST ============================== */
 
-/* HINT · WHEN YOU'RE DONE
-   Your page should now look like your Task 2 screenshot.
 
-   Check the grid lines:
-     1. Open the page in Chrome and open DevTools with Cmd + Option + I.
-     2. Turn on the device toolbar with Cmd + Shift + M and type 1200 as the width.
-     3. In the Elements panel, click the small "grid" badge next to a band.
-        The lines appear on the page. Use the Layout tab if you need to turn on line numbers.
-     4. Compare them to the line table above and to Z S 2 in Figma.
-
-   Check your HTML:
-     1. Delete all the HINT comments in style.css. Search the file for HINT to catch them all.
-     2. Go to validator.w3.org, choose "Validate by File Upload" and upload index.html.
-     3. Fix any errors. Warnings about an empty heading or a section with no heading are expected
-        while your boxes are empty. */
