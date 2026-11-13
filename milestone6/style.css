@@ -13,7 +13,7 @@
 margin: 0;
 display: grid;
 font-family: "Inter", sans-serif;
-grid-template-columns: minmax(0px, 1fr) repeat(6, minmax(0, 175px)) minmax(0px, 1fr);
+grid-template-columns: minmax(16px, 1fr) repeat(6, minmax(0, 175px)) minmax(16px, 1fr);
 }
 
 header, main, footer {
@@ -313,7 +313,7 @@ background-color: var(--cream);
 }
 @media (max-width: 991px) {
   body {
-    grid-template-columns: minmax(0px, 1fr) repeat(6, minmax(0, 128px)) minmax(0px, 1fr);
+    grid-template-columns: minmax(16px, 1fr) repeat(6, minmax(0, 128px)) minmax(16px, 1fr);
   }
 
   .reviews {
@@ -368,4 +368,31 @@ background-color: var(--cream);
     padding-left: 16px;
     padding-right: 16px;
   }
+}
+@media(max-width: 600px){
+  .nav{
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    flex-wrap: nowrap;
+  }
+  .left, .right{
+    grid-column: 2 / 8;
+    min-height: 0;
+  }
+  .left{
+    grid-row: 6;
+    padding-top: 24px;
+  }
+  .right{
+    grid-row: 7;
+    padding-top: 16px;
+    padding-bottom: 24px;
+  }
+  .footer-bg{
+    grid-row: 6 / 8;
+  }
+  
 }
