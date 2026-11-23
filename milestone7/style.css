@@ -1,3 +1,7 @@
+/* TODO Milestone 7: the subpages share this stylesheet. Keep the same colors, fonts and grid so they match Home.
+   Subpages should not have the big hero banner, so don't reuse the hero section on them.
+   Put the styles for new subpage content at the end of this file, and check each new page at 1400px, 1000px, 540px and 320px.
+   Bring over your Milestone 6 fixes here too (TODOs 1-4 in milestone6/style.css). */
 
 
 :root{
