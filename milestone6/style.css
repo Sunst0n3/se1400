@@ -1,6 +1,3 @@
-/* TODO list from Brayden's Milestone 6 feedback (Canvas, Nov 12 and Nov 20). Each TODO below marks where to make one fix.
-   Your Nov 13 push may already cover some of the Nov 12 notes, so test each width first and skip what already looks right.
-   Delete every TODO comment once its fix is done, before you resubmit the milestone6 link. */
 
 
 :root{
@@ -11,20 +8,14 @@
   --buttontext: rgba(245, 245, 245, 1);
   --buttonborder: rgba(44, 44, 44, 1);
 }
-/* TODO 1 (Nov 12): at about 1000px wide the right edge needs more space. Between roughly 992px and 1050px the outer
-   side columns of this grid shrink to their minimum, so content runs close to the right edge. Decide how much margin
-   you want at that width and give the side columns (or the content) that room. Check that the nav links on the right
-   no longer touch the edge. */
  body
 {
 margin: 0;
 display: grid;
 font-family: "Inter", sans-serif;
-grid-template-columns: minmax(16px, 1fr) repeat(6, minmax(0, 175px)) minmax(16px, 1fr);
+grid-template-columns: minmax(32px, 1fr) repeat(6, minmax(0, 175px)) minmax(32px, 1fr);
 }
 
-/* TODO 5 (Milestone 4 note): Brayden asked for one grid on body with everything inside it. This rule already does that.
-   Keep it this way and don't add a second grid inside a section. */
 header, main, footer {
   display: contents;
 }
@@ -336,12 +327,10 @@ background-color: var(--cream);
   .logo{
     grid-column: 2 / 4;
   }
-  /* TODO 2 (Nov 12): around 540px the menu items wrap onto a second line. Brayden wants the menu stacked vertically
-     instead of wrapping at that width. Check the menu at 540px and 600px; your 600px rule below stacks it, so make sure
-     there's no width between 600px and 768px where the links still wrap onto two lines. */
   .nav{
     grid-column: 4 / 8;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-end;
     gap: 8px 20px;
     align-content: center;
   }
@@ -382,20 +371,32 @@ background-color: var(--cream);
   }
 }
 @media(max-width: 600px){
-  /* TODO 4 (Nov 20): on phones the menu links are too small to tap. Make each link a bigger button (about 44px tall
-     is a common minimum), center the menu instead of lining it up on the right, and hide the logo at this width so the
-     menu has room. */
+  .logo{
+    display: none;
+  }
+
   .nav{
     flex-direction: column;
     align-items: flex-end;
+    grid-column: 2/8;
     gap: 8px;
     padding-top: 16px;
     padding-bottom: 16px;
     flex-wrap: nowrap;
   }
-  /* TODO 3 (Nov 12): at about 330px the footer words get cut off. Test at 320px (iPhone SE size), the smallest width
-     to design for. The long contact line with the phone number and email is the likely cause, so let that text wrap or
-     shrink so nothing runs off the screen. */
+
+  .nav a{
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .right p{
+    overflow-wrap: anywhere;
+  }
+
+
   .left, .right{
     grid-column: 2 / 8;
     min-height: 0;
